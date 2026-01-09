@@ -1,0 +1,68 @@
+/* #region: Variables */
+:root {
+  --bg: #f6f2eb;
+  --bg-alt: #efe7dd;
+  --surface: #fffaf2;
+  --ink: #1c1b1f;
+  --muted: #5f5b57;
+  --accent: #e76f51;
+  --accent-2: #2a9d8f;
+  --accent-3: #264653;
+  --danger: #b53f3f;
+  --outline: rgba(38, 70, 83, 0.2);
+  --shadow: 0 20px 45px rgba(38, 70, 83, 0.16);
+  --radius: 18px;
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+}
+
+body[data-theme="dark"] {
+  --bg: #141817;
+  --bg-alt: #1c2321;
+  --surface: #1f2624;
+  --ink: #f2efe9;
+  --muted: #b4aca3;
+  --accent: #f4a261;
+  --accent-2: #5dd8c1;
+  --accent-3: #d3c5a1;
+  --danger: #cf5b5b;
+  --outline: rgba(255, 255, 255, 0.12);
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(130deg, #121615, #1c2321);
+}
+/* #endregion */
+
+/* #region: Global Rules */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Atkinson Hyperlegible Mono", monospace;
+  color: var(--ink);
+  background: linear-gradient(120deg, #f6f2eb 0%, #efe8de 50%, #f9f4ec 100%);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: sans-serif;
+  margin: 0 0 var(--space-2);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/* #endregion */
