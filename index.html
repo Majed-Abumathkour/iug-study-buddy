@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- #region: Meta + Title -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StudyBuddy</title>
+    <!-- #endregion: Meta + Title -->
+
+    <!-- #region: Fonts + Icons -->
+    <!-- Google Fonts for the main typography. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+    <!-- Boxicons for the header navigation icons. -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <!-- #endregion: Fonts + Icons -->
+
+    <!-- #region: App Styles -->
     <link rel="stylesheet" href="style.css" />
+    <!-- #endregion: App Styles -->
   </head>
   <body data-theme="light">
+    <!-- #region: Header -->
+    <!--
+      data-theme is used by JavaScript later to toggle light/dark mode.
+      We start in "light" so the CSS variables use the light palette by default.
+    -->
     <header class="app-header">
+      <!-- container keeps content away from screen edges at all sizes -->
       <div class="container app-header-inner">
+        <!-- Brand / logo block -->
         <div class="brand">
           <div class="brand-mark brand-logo">
             <img src="media/images/logo.png" alt="StudyBuddy logo" />
@@ -28,6 +45,10 @@
             <p>Planner, habit tracker, resources.</p>
           </div>
         </div>
+        <!--
+          Mobile navigation toggle.
+          JavaScript will later toggle aria-expanded and add/remove .nav-open on .app-header.
+        -->
         <button
           class="nav-toggle"
           id="navToggle"
@@ -38,6 +59,10 @@
           Menu
         </button>
 
+        <!--
+          Primary navigation.
+          data-nav hooks are used by JavaScript later to set active state and switch sections.
+        -->
         <nav id="primaryNav" class="nav">
           <a class="nav-link" href="#dashboard" data-nav>
             <i class="bx bx-grid-alt" aria-hidden="true"></i>
@@ -62,8 +87,19 @@
         </nav>
       </div>
     </header>
+    <!-- #endregion: Header -->
+
+    <!-- #region: Main Content -->
+    <!-- App sections will be added here step-by-step. -->
     <main class="app-main container"></main>
+    <!-- #endregion: Main Content -->
+    <!-- #region: Footer -->
     <footer>Built with ❤ by Majed Abumathkour</footer>
+    <!-- #endregion: Footer -->
+
+    <!-- #region: App Script -->
+    <!-- JavaScript is deferred so the HTML renders before behavior is attached. -->
     <script src="app.js" defer></script>
+    <!-- #endregion: App Script -->
   </body>
 </html>

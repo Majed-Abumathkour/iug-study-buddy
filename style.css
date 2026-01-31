@@ -71,6 +71,7 @@ a {
 
 /* #region: Container */
 .container {
+  /* Keep content away from the screen edge on small devices. */
   padding-left: 15px;
   padding-right: 15px;
   /* so the the elements won't start form the edge of the screen,
@@ -100,9 +101,10 @@ a {
 
 /* #endregion: Components */
 
-
+/* #region: Header */
 
 .app-header {
+  /* Sticky header so navigation stays visible while scrolling. */
   position: sticky;
   top: 0;
   z-index: 10;
@@ -112,6 +114,7 @@ a {
 }
 
 .app-header-inner {
+  /* Flex layout for brand, toggle, and nav. */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -122,16 +125,23 @@ a {
 }
 
 body[data-theme="dark"] .app-header {
+  /* Dark theme header background override. */
   background: rgba(20, 24, 23, 0.9);
 }
 
+/* #endregion: Header */
+
+/* #region: Brand */
+
 .brand {
+  /* Brand row with logo + name. */
   display: flex;
   align-items: center;
   gap: var(--space-2);
 }
 
 .brand-mark {
+  /* Logo container so the image stays inside a fixed square. */
   width: 50px;
   height: 50px;
   border-radius: 14px;
@@ -144,18 +154,25 @@ body[data-theme="dark"] .app-header {
 }
 
 .brand-logo img {
-  width: 100%;
-  height: 100%;
+  /* Scale the logo image without stretching. */
+  min-width: 100%;
+  min-height: 100%;
   object-fit: contain;
   display: block;
 }
 
 .brand-copy p {
+  /* Secondary brand text. */
   color: var(--muted);
   font-size: 0.9rem;
 }
 
+/* #endregion: Brand */
+
+/* #region: Navigation */
+
 .nav-toggle {
+  /* Mobile toggle button that JS will use to open/close the menu. */
   border: 1px solid var(--outline);
   background: var(--surface);
   color: var(--ink);
@@ -169,6 +186,7 @@ body[data-theme="dark"] .app-header {
 }
 
 .nav {
+  /* Hidden by default on small screens; JS will reveal it. */
   display: none;
   flex-direction: column;
   gap: var(--space-2);
@@ -183,10 +201,12 @@ body[data-theme="dark"] .app-header {
 }
 
 .app-header.nav-open .nav {
+  /* JS adds .nav-open to show the menu on small screens. */
   display: flex;
 }
 
 .nav-link {
+  /* Each navigation item with icon + label. */
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -198,16 +218,19 @@ body[data-theme="dark"] .app-header {
 
 .nav-link.is-active,
 .nav-link:hover {
+  /* JS will add .is-active to the current section link. */
   color: var(--accent-3);
   background: rgba(231, 111, 81, 0.12);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   .nav-toggle {
+    /* Hide the toggle on larger screens. */
     display: none;
   }
 
   .nav {
+    /* Always show the nav inline on larger screens. */
     position: static;
     flex-direction: row;
     display: flex;
@@ -217,3 +240,5 @@ body[data-theme="dark"] .app-header {
     box-shadow: none;
   }
 }
+
+/* #endregion: Navigation */
