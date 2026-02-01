@@ -174,9 +174,26 @@ a {
   gap: var(--space-2);
 }
 
+.form-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
 .field {
   display: grid;
   gap: 0.35rem;
+}
+
+.field-group {
+  display: grid;
+  gap: var(--space-2);
+}
+
+@media (min-width: 720px) {
+  .field-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 label {
@@ -214,6 +231,12 @@ textarea {
   color: #fff;
   box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3);
 }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--outline);
+  color: var(--ink);
+}
 /* #endregion: Buttons */
 
 /* #region: Progress */
@@ -236,6 +259,30 @@ textarea {
 .muted {
   color: var(--muted);
 }
+
+/* #region: Layout Helpers */
+.controls-grid {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+@media (min-width: 720px) {
+  .controls-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+  }
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.hidden {
+  display: none;
+}
+/* #endregion: Layout Helpers */
 
 /* #endregion: Components */
 
@@ -266,7 +313,6 @@ body[data-theme="dark"] .app-header {
   /* Dark theme header background override. */
   background: rgba(20, 24, 23, 0.9);
 }
-
 
 /* #region: Brand */
 

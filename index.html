@@ -175,6 +175,110 @@
         </div>
       </section>
       <!-- #endregion: Dashboard Section -->
+
+      <!-- #region: Tasks Section -->
+      <section id="tasks" class="panel is-active" data-section>
+        <!-- Section header -->
+        <div class="section-header">
+          <h2>Tasks</h2>
+          <p>Manage assignments with filters and priority.</p>
+        </div>
+
+        <div class="stack">
+        <!-- Task form -->
+        <div class="card">
+          <h3>Add or edit a task</h3>
+          <form id="taskForm" class="form">
+            <div class="field">
+              <label for="taskTitle">Title *</label>
+              <input
+                id="taskTitle"
+                name="title"
+                type="text"
+                placeholder="Write report summary"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="taskDescription">Description</label>
+              <textarea
+                id="taskDescription"
+                name="description"
+                rows="3"
+                placeholder="Optional details"
+              ></textarea>
+            </div>
+            <div class="field-group">
+              <div class="field">
+                <label for="taskDueDate">Due date *</label>
+                <input id="taskDueDate" name="dueDate" type="date" required />
+              </div>
+              <div class="field">
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority" name="priority">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="taskCategory">Category</label>
+                <input
+                  id="taskCategory"
+                  name="category"
+                  type="text"
+                  placeholder="Course or tag"
+                />
+              </div>
+            </div>
+            <p class="form-error" id="taskError" role="alert"></p>
+            <div class="form-actions">
+              <button class="btn btn-primary" id="taskSubmit" type="submit">
+                Add task
+              </button>
+              <button
+                class="btn btn-ghost hidden"
+                id="taskCancel"
+                type="button"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Task list controls + list -->
+        <div class="card">
+          <div class="controls-grid">
+            <div class="field">
+              <label for="taskFilter">Status</label>
+              <select id="taskFilter">
+                <option value="all" selected>All</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="taskCategoryFilter">Category</label>
+              <input
+                id="taskCategoryFilter"
+                type="text"
+                placeholder="Filter by category"
+              />
+            </div>
+            <div class="field">
+              <label for="taskSort">Sort by</label>
+              <select id="taskSort">
+                <option value="due" selected>Due date</option>
+                <option value="priority">Priority</option>
+              </select>
+            </div>
+          </div>
+          <div id="tasksList" class="stack"></div>
+        </div>
+        </div>
+      </section>
+      <!-- #endregion: Tasks Section -->
     </main>
     <!-- #endregion: Main Content -->
 
