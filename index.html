@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- #region: Meta + Title -->
@@ -27,27 +27,36 @@
     <!-- #endregion: App Styles -->
   </head>
   <body data-theme="light">
-    <!-- #region: Header -->
     <!--
       data-theme is used by JavaScript later to toggle light/dark mode.
       We start in "light" so the CSS variables use the light palette by default.
     -->
+
+    <!-- #region: Header -->
     <header class="app-header">
       <!-- container keeps content away from screen edges at all sizes -->
       <div class="container app-header-inner">
+
         <!-- Brand / logo block -->
         <div class="brand">
-          <div class="brand-mark brand-logo">
+          <div class="brand-logo">
             <img src="media/images/logo.png" alt="StudyBuddy logo" />
           </div>
           <div class="brand-copy">
+            <!-- Wordmark -->
             <h1>StudyBuddy</h1>
+            <!-- Tagline -->
             <p>Planner, habit tracker, resources.</p>
           </div>
         </div>
+
         <!--
           Mobile navigation toggle.
           JavaScript will later toggle aria-expanded and add/remove .nav-open on .app-header.
+          class: for CSS styling.
+          id: JS hook to find the button and attach the click handler.
+          aria-expanded: JS will toggle this to reflect open/closed state (also for screen readers).
+          aria-controls: accessibility link to the controlled nav (not required by JS).
         -->
         <button
           class="nav-toggle"
@@ -55,6 +64,9 @@
           aria-expanded="false"
           aria-controls="primaryNav"
         >
+          <!-- Decorative icon; hidden from screen readers because "Menu" text provides the label.
+           If the icon is the only content (icon‑only button), i will not hide it;
+           instead i will add an accessible label aria-label="Menu" -->
           <i class="bx bx-menu" aria-hidden="true"></i>
           Menu
         </button>
@@ -93,6 +105,7 @@
     <!-- App sections will be added here step-by-step. -->
     <main class="app-main container"></main>
     <!-- #endregion: Main Content -->
+
     <!-- #region: Footer -->
     <footer>Built with ❤ by Majed Abumathkour</footer>
     <!-- #endregion: Footer -->

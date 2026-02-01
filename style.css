@@ -42,7 +42,11 @@ body[data-theme="dark"] {
 }
 
 body {
+  /* margin is a non‑inherited (non‑inheritable) property.
+     So margin: 0 on body affects only the body element itself,
+     not its children. unless was explicitly set*/
   margin: 0;
+  /* Inheritable properties (like font-family and color) cascade to child elements unless overridden. */
   font-family: "Atkinson Hyperlegible Mono", monospace;
   color: var(--ink);
   background: linear-gradient(120deg, #f6f2eb 0%, #efe8de 50%, #f9f4ec 100%);
@@ -71,28 +75,31 @@ a {
 
 /* #region: Container */
 .container {
-  /* Keep content away from the screen edge on small devices. */
+  /* Base (mobile) container: default for the smallest screens. */
+  /* Side padding prevents content from touching the viewport edge. */
   padding-left: 15px;
   padding-right: 15px;
-  /* so the the elements won't start form the edge of the screen,
-   even if the screen is small. */
+  /* Auto margins center the container when a fixed width is applied later. */
   margin-right: auto;
   margin-left: auto;
 }
 
 @media (min-width: 768px) {
+  /* Tablet and up: give the container a fixed width. */
   .container {
     width: 750px;
   }
 }
 
 @media (min-width: 992px) {
+  /* Small desktop and up: wider container. */
   .container {
     width: 970px;
   }
 }
 
 @media (min-width: 1200px) {
+  /* Large desktop and up: widest container. */
   .container {
     width: 1170px;
   }
@@ -129,7 +136,6 @@ body[data-theme="dark"] .app-header {
   background: rgba(20, 24, 23, 0.9);
 }
 
-/* #endregion: Header */
 
 /* #region: Brand */
 
@@ -140,12 +146,11 @@ body[data-theme="dark"] .app-header {
   gap: var(--space-2);
 }
 
-.brand-mark {
+.brand-logo {
   /* Logo container so the image stays inside a fixed square. */
   width: 50px;
   height: 50px;
   border-radius: 14px;
-  background: #000;
   box-shadow: var(--shadow);
   overflow: hidden;
   display: flex;
@@ -155,14 +160,14 @@ body[data-theme="dark"] .app-header {
 
 .brand-logo img {
   /* Scale the logo image without stretching. */
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
 }
 
 .brand-copy p {
-  /* Secondary brand text. */
+  /* The tagline text under the brand name. */
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -186,13 +191,14 @@ body[data-theme="dark"] .app-header {
 }
 
 .nav {
-  /* Hidden by default on small screens; JS will reveal it. */
+  /* Hidden by default on small screens, because the design is mobile first
+     JS will reveal it. */
   display: none;
   flex-direction: column;
   gap: var(--space-2);
   position: absolute;
-  right: 0;
-  top: calc(100% + var(--space-2));
+  right: 15px;
+  top: calc(100% + var(--space-1));
   background: var(--surface);
   padding: var(--space-3);
   border-radius: var(--radius);
@@ -201,7 +207,8 @@ body[data-theme="dark"] .app-header {
 }
 
 .app-header.nav-open .nav {
-  /* JS adds .nav-open to show the menu on small screens. */
+  /* JS adds .nav-open class to the header
+     to show the menu on small screens. */
   display: flex;
 }
 
@@ -225,15 +232,15 @@ body[data-theme="dark"] .app-header {
 
 @media (min-width: 992px) {
   .nav-toggle {
-    /* Hide the toggle on larger screens. */
+    /* Hide the button on larger screens. */
     display: none;
   }
 
   .nav {
     /* Always show the nav inline on larger screens. */
     position: static;
-    flex-direction: row;
     display: flex;
+    flex-direction: row;
     background: transparent;
     padding: 0;
     border: none;
@@ -242,3 +249,5 @@ body[data-theme="dark"] .app-header {
 }
 
 /* #endregion: Navigation */
+
+/* #endregion: Header */
