@@ -106,6 +106,137 @@ a {
 }
 /* #endregion: Container */
 
+/* #region: Panels */
+.panel {
+  /* Base section state: hidden until activated by JS. */
+  display: none;
+}
+
+.panel.is-active {
+  /* Visible section for the current nav selection. */
+  display: block;
+}
+/* #endregion: Panel */
+
+/* #region: Section Header */
+.section-header {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: var(--space-4);
+}
+
+.section-header p {
+  color: var(--muted);
+}
+/* #endregion: Section Header */
+
+/* #region: Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  border: 1px solid var(--outline);
+  box-shadow: var(--shadow);
+}
+/* #endregion: Cards */
+
+/* #region: Lists */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--outline);
+}
+/* #endregion: Lists */
+
+/* #region: Forms */
+.form {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+label {
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--outline);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: inherit;
+}
+
+.form-error {
+  color: var(--danger);
+  min-height: 1rem;
+}
+/* #endregion: Forms */
+
+/* #region: Buttons */
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3);
+}
+/* #endregion: Buttons */
+
+/* #region: Progress */
+.progress {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(38, 70, 83, 0.12);
+  overflow: hidden;
+}
+
+.progress-bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+/* #endregion: Progress */
+
+.muted {
+  color: var(--muted);
+}
+
 /* #endregion: Components */
 
 /* #region: Header */
@@ -251,3 +382,42 @@ body[data-theme="dark"] .app-header {
 /* #endregion: Navigation */
 
 /* #endregion: Header */
+
+/* #region: Main Content */
+
+.app-main {
+  /* Main content spacing inside the container. */
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-6);
+}
+
+/* #region: Dashboard */
+
+/* #region: Summary Cards */
+.summary-card {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.summary-value {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+/* #endregion: Summary Cards */
+
+/* #region: Dashboard Split */
+.dashboard-split {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 720px) {
+  .dashboard-split {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+/* #endregion: Dashboard Split */
+
+/* #endregion: Dashboard */
+
+/* #endregion: Main Content */

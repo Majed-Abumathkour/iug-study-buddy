@@ -36,7 +36,6 @@
     <header class="app-header">
       <!-- container keeps content away from screen edges at all sizes -->
       <div class="container app-header-inner">
-
         <!-- Brand / logo block -->
         <div class="brand">
           <div class="brand-logo">
@@ -102,8 +101,81 @@
     <!-- #endregion: Header -->
 
     <!-- #region: Main Content -->
-    <!-- App sections will be added here step-by-step. -->
-    <main class="app-main container"></main>
+    <main class="app-main container">
+      <!-- #region: Dashboard Section -->
+      <section id="dashboard" class="panel is-active" data-section>
+        <!-- Section header -->
+        <div class="section-header">
+          <h2>Dashboard</h2>
+          <p>Overview of your study flow this week.</p>
+        </div>
+
+        <!-- Summary cards -->
+        <div class="cards-grid">
+          <div class="card summary-card">
+            <h3>Soon due tasks</h3>
+            <p class="summary-value" id="soonDueCount">0</p>
+            <p class="muted">Due within 2 days</p>
+          </div>
+          <div class="card summary-card">
+            <h3>Completed tasks</h3>
+            <p class="summary-value" id="completedCount">0</p>
+            <p class="muted">Across all tasks</p>
+          </div>
+          <div class="card summary-card">
+            <h3>Habit streak</h3>
+            <p class="summary-value" id="habitStreakCount">0</p>
+            <p class="muted">Best streak this week</p>
+          </div>
+          <div class="card summary-card">
+            <h3>Task progress</h3>
+            <div
+              class="progress"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <span class="progress-bar" id="taskProgressBar"></span>
+            </div>
+            <p class="muted" id="taskProgressText">0% complete</p>
+          </div>
+        </div>
+
+        <!-- Two-column dashboard split -->
+        <div class="dashboard-split">
+          <div class="card">
+            <h3>Today and soon</h3>
+            <ul class="list" id="todayList"></ul>
+            <p class="muted" id="todayEmpty">
+              No tasks due in the next two days.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Quick add task</h3>
+            <form id="quickTaskForm" class="form">
+              <div class="field">
+                <label for="quickTitle">Title *</label>
+                <input
+                  id="quickTitle"
+                  name="title"
+                  type="text"
+                  placeholder="Read chapter 3"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="quickDueDate">Due date *</label>
+                <input id="quickDueDate" name="dueDate" type="date" required />
+              </div>
+              <p class="form-error" id="quickError" role="alert"></p>
+              <button class="btn btn-primary" type="submit">Add task</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- #endregion: Dashboard Section -->
+    </main>
     <!-- #endregion: Main Content -->
 
     <!-- #region: Footer -->
