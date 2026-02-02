@@ -145,6 +145,11 @@ a {
   border: 1px solid var(--outline);
   box-shadow: var(--shadow);
 }
+
+.summary-value {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
 /* #endregion: Cards */
 
 /* #region: Lists */
@@ -211,6 +216,10 @@ textarea {
   font-family: inherit;
 }
 
+textarea {
+  resize: vertical;
+}
+
 .form-error {
   color: var(--danger);
   min-height: 1rem;
@@ -236,6 +245,11 @@ textarea {
   background: transparent;
   border: 1px solid var(--outline);
   color: var(--ink);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
 }
 /* #endregion: Buttons */
 
@@ -445,10 +459,6 @@ body[data-theme="dark"] .app-header {
   gap: 0.4rem;
 }
 
-.summary-value {
-  font-size: 2.2rem;
-  font-weight: 600;
-}
 /* #endregion: Summary Cards */
 
 /* #region: Dashboard Split */
@@ -466,4 +476,223 @@ body[data-theme="dark"] .app-header {
 
 /* #endregion: Dashboard */
 
+/* #region: Tasks */
+.task-card {
+  border-radius: 16px;
+  padding: var(--space-3);
+  background: var(--bg-alt);
+  border: 1px solid var(--outline);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.task-card.is-complete {
+  opacity: 0.7;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(38, 70, 83, 0.12);
+  font-size: 0.85rem;
+}
+
+.pill-high {
+  background: rgba(231, 111, 81, 0.2);
+  color: var(--accent-3);
+}
+
+.pill-medium {
+  background: rgba(244, 162, 97, 0.2);
+}
+
+.pill-low {
+  background: rgba(42, 157, 143, 0.2);
+}
+
+.badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(42, 157, 143, 0.2);
+  font-size: 0.8rem;
+}
+/* #endregion: Tasks */
+
+/* #region: Habits */
+.habit-summary {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.habit-card {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.habit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.habit-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+}
+
+.day-toggle {
+  border: 1px solid var(--outline);
+  border-radius: 12px;
+  padding: 0.4rem 0.2rem;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: inherit;
+}
+
+.day-toggle.is-on {
+  background: rgba(42, 157, 143, 0.2);
+  border-color: var(--accent-2);
+}
+/* #endregion: Habits */
+
+/* #region: Resources */
+.resources-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.resource-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: 16px;
+  border: 1px solid var(--outline);
+  background: var(--bg-alt);
+}
+
+.resource-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.resource-link {
+  color: var(--accent-3);
+  font-weight: 600;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--outline);
+  background: var(--surface);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.icon-btn.is-favorite {
+  border-color: var(--accent);
+  color: var(--accent-3);
+}
+
+.status {
+  margin-bottom: var(--space-2);
+  color: var(--muted);
+}
+
+.status.is-error {
+  color: var(--danger);
+}
+/* #endregion: Resources */
+
+/* #region: Settings */
+.settings-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.settings-card {
+  display: grid;
+  gap: var(--space-2);
+}
+
+@media (min-width: 900px) {
+  .settings-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch-track {
+  width: 46px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(38, 70, 83, 0.2);
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.switch-track::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.switch input:checked + .switch-track {
+  background: var(--accent-2);
+}
+
+.switch input:checked + .switch-track::after {
+  transform: translateX(20px);
+}
+
+.switch-label {
+  font-size: 0.95rem;
+}
+/* #endregion: Settings */
+
 /* #endregion: Main Content */
+
+footer {
+  text-align: center;
+  padding: var(--space-4);
+  color: var(--muted);
+}

@@ -32,7 +32,6 @@
       We start in "light" so the CSS variables use the light palette by default.
     -->
 
-    <!-- #region: Header -->
     <header class="app-header">
       <!-- container keeps content away from screen edges at all sizes -->
       <div class="container app-header-inner">
@@ -98,11 +97,8 @@
         </nav>
       </div>
     </header>
-    <!-- #endregion: Header -->
 
-    <!-- #region: Main Content -->
     <main class="app-main container">
-      <!-- #region: Dashboard Section -->
       <section id="dashboard" class="panel is-active" data-section>
         <!-- Section header -->
         <div class="section-header">
@@ -174,10 +170,8 @@
           </div>
         </div>
       </section>
-      <!-- #endregion: Dashboard Section -->
 
-      <!-- #region: Tasks Section -->
-      <section id="tasks" class="panel is-active" data-section>
+      <section id="tasks" class="panel" data-section>
         <!-- Section header -->
         <div class="section-header">
           <h2>Tasks</h2>
@@ -185,106 +179,220 @@
         </div>
 
         <div class="stack">
-        <!-- Task form -->
-        <div class="card">
-          <h3>Add or edit a task</h3>
-          <form id="taskForm" class="form">
-            <div class="field">
-              <label for="taskTitle">Title *</label>
-              <input
-                id="taskTitle"
-                name="title"
-                type="text"
-                placeholder="Write report summary"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="taskDescription">Description</label>
-              <textarea
-                id="taskDescription"
-                name="description"
-                rows="3"
-                placeholder="Optional details"
-              ></textarea>
-            </div>
-            <div class="field-group">
+          <!-- Task form -->
+          <div class="card">
+            <h3>Add or edit a task</h3>
+            <form id="taskForm" class="form">
               <div class="field">
-                <label for="taskDueDate">Due date *</label>
-                <input id="taskDueDate" name="dueDate" type="date" required />
+                <label for="taskTitle">Title *</label>
+                <input
+                  id="taskTitle"
+                  name="title"
+                  type="text"
+                  placeholder="Write report summary"
+                  required
+                />
               </div>
               <div class="field">
-                <label for="taskPriority">Priority</label>
-                <select id="taskPriority" name="priority">
-                  <option value="low">Low</option>
-                  <option value="medium" selected>Medium</option>
-                  <option value="high">High</option>
+                <label for="taskDescription">Description</label>
+                <textarea
+                  id="taskDescription"
+                  name="description"
+                  rows="3"
+                  placeholder="Optional details"
+                ></textarea>
+              </div>
+              <div class="field-group">
+                <div class="field">
+                  <label for="taskDueDate">Due date *</label>
+                  <input id="taskDueDate" name="dueDate" type="date" required />
+                </div>
+                <div class="field">
+                  <label for="taskPriority">Priority</label>
+                  <select id="taskPriority" name="priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="taskCategory">Category</label>
+                  <input
+                    id="taskCategory"
+                    name="category"
+                    type="text"
+                    placeholder="Course or tag"
+                  />
+                </div>
+              </div>
+              <p class="form-error" id="taskError" role="alert"></p>
+              <div class="form-actions">
+                <button class="btn btn-primary" id="taskSubmit" type="submit">
+                  Add task
+                </button>
+                <button
+                  class="btn btn-ghost hidden"
+                  id="taskCancel"
+                  type="button"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Task list controls + list -->
+          <div class="card">
+            <div class="controls-grid">
+              <div class="field">
+                <label for="taskFilter">Status</label>
+                <select id="taskFilter">
+                  <option value="all" selected>All</option>
+                  <option value="active">Active</option>
+                  <option value="completed">Completed</option>
                 </select>
               </div>
               <div class="field">
-                <label for="taskCategory">Category</label>
+                <label for="taskCategoryFilter">Category</label>
                 <input
-                  id="taskCategory"
-                  name="category"
+                  id="taskCategoryFilter"
                   type="text"
-                  placeholder="Course or tag"
+                  placeholder="Filter by category"
                 />
               </div>
+              <div class="field">
+                <label for="taskSort">Sort by</label>
+                <select id="taskSort">
+                  <option value="due" selected>Due date</option>
+                  <option value="priority">Priority</option>
+                </select>
+              </div>
             </div>
-            <p class="form-error" id="taskError" role="alert"></p>
-            <div class="form-actions">
-              <button class="btn btn-primary" id="taskSubmit" type="submit">
-                Add task
-              </button>
-              <button
-                class="btn btn-ghost hidden"
-                id="taskCancel"
-                type="button"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+            <div id="tasksList" class="stack"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="habits" class="panel" data-section>
+        <!-- Section header -->
+        <div class="section-header">
+          <h2>Habits</h2>
+          <p>Track weekly routines and goals.</p>
         </div>
 
-        <!-- Task list controls + list -->
+        <div class="stack">
+          <!-- Habit form -->
+          <div class="card">
+            <h3>Add a habit</h3>
+            <form id="habitForm" class="form">
+              <div class="field">
+                <label for="habitName">Habit name *</label>
+                <input
+                  id="habitName"
+                  name="name"
+                  type="text"
+                  placeholder="Review notes"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="habitGoal">Goal per week (1-7) *</label>
+                <input
+                  id="habitGoal"
+                  name="goal"
+                  type="number"
+                  min="1"
+                  max="7"
+                  value="3"
+                  required
+                />
+              </div>
+              <p class="form-error" id="habitError" role="alert"></p>
+              <button class="btn btn-primary" type="submit">Add habit</button>
+            </form>
+          </div>
+
+          <!-- Habits list + summary -->
+          <div class="card">
+            <div class="habit-summary">
+              <h3>Weekly summary</h3>
+              <p class="summary-value" id="habitsSummary">
+                0 of 0 goals achieved
+              </p>
+            </div>
+            <div id="habitsList" class="stack"></div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="resources" class="panel" data-section>
+        <!-- Section header -->
+        <div class="section-header">
+          <h2>Resources</h2>
+          <p>Search and save study materials.</p>
+        </div>
+
         <div class="card">
           <div class="controls-grid">
             <div class="field">
-              <label for="taskFilter">Status</label>
-              <select id="taskFilter">
-                <option value="all" selected>All</option>
-                <option value="active">Active</option>
-                <option value="completed">Completed</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="taskCategoryFilter">Category</label>
+              <label for="resourceSearch">Search</label>
               <input
-                id="taskCategoryFilter"
+                id="resourceSearch"
                 type="text"
-                placeholder="Filter by category"
+                placeholder="Search resources"
               />
             </div>
             <div class="field">
-              <label for="taskSort">Sort by</label>
-              <select id="taskSort">
-                <option value="due" selected>Due date</option>
-                <option value="priority">Priority</option>
+              <label for="resourceCategory">Category</label>
+              <select id="resourceCategory">
+                <option value="all" selected>All</option>
               </select>
             </div>
           </div>
-          <div id="tasksList" class="stack"></div>
-        </div>
+          <div id="resourcesStatus" class="status" aria-live="polite"></div>
+          <div id="resourcesList" class="resources-grid"></div>
         </div>
       </section>
-      <!-- #endregion: Tasks Section -->
-    </main>
-    <!-- #endregion: Main Content -->
 
-    <!-- #region: Footer -->
+      <section id="settings" class="panel" data-section>
+        <!-- Section header -->
+        <div class="section-header">
+          <h2>Settings and About</h2>
+          <p>Personalize your experience and reset data.</p>
+        </div>
+
+        <div class="settings-grid">
+          <div class="card">
+            <h3>Theme</h3>
+            <label class="switch">
+              <input type="checkbox" id="themeToggle" />
+              <span class="switch-track"></span>
+              <span class="switch-label" id="themeLabel">Dark mode off</span>
+            </label>
+          </div>
+          <div class="card settings-card">
+            <h3>Reset data</h3>
+            <p class="muted">
+              Remove tasks, habits, and favorites from this browser.
+            </p>
+            <button class="btn btn-danger" id="resetBtn" type="button">
+              Reset local data
+            </button>
+          </div>
+          <div class="card">
+            <h3>About</h3>
+            <p>
+              StudyBuddy is a single page app that helps you plan tasks, track
+              habits, and save learning resources.
+            </p>
+            <p>Student: <strong>Majed Mathkour</strong></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <footer>Built with ❤ by Majed Abumathkour</footer>
-    <!-- #endregion: Footer -->
 
     <!-- #region: App Script -->
     <!-- JavaScript is deferred so the HTML renders before behavior is attached. -->
