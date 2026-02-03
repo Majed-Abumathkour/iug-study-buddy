@@ -1,0 +1,86 @@
+[
+  {
+    "id": "res-1",
+    "title": "MDN Web Docs",
+    "category": "Web",
+    "link": "https://developer.mozilla.org/",
+    "description": "Reference for HTML, CSS, and JavaScript."
+  },
+  {
+    "id": "res-2",
+    "title": "JavaScript Info",
+    "category": "Web",
+    "link": "https://javascript.info/",
+    "description": "Modern JavaScript tutorials and guides."
+  },
+  {
+    "id": "res-3",
+    "title": "CSS Tricks",
+    "category": "Design",
+    "link": "https://css-tricks.com/",
+    "description": "Tips and examples for CSS and UI design."
+  },
+  {
+    "id": "res-4",
+    "title": "Smashing Magazine",
+    "category": "Design",
+    "link": "https://www.smashingmagazine.com/",
+    "description": "Articles on UX, UI, and web development."
+  },
+  {
+    "id": "res-5",
+    "title": "freeCodeCamp",
+    "category": "Programming",
+    "link": "https://www.freecodecamp.org/",
+    "description": "Practice coding with interactive lessons."
+  },
+  {
+    "id": "res-6",
+    "title": "Stack Overflow",
+    "category": "Programming",
+    "link": "https://stackoverflow.com/",
+    "description": "Community Q and A for programming problems."
+  },
+  {
+    "id": "res-7",
+    "title": "Khan Academy",
+    "category": "Math",
+    "link": "https://www.khanacademy.org/",
+    "description": "Math lessons and practice exercises."
+  },
+  {
+    "id": "res-8",
+    "title": "MIT OpenCourseWare",
+    "category": "Computer Science",
+    "link": "https://ocw.mit.edu/",
+    "description": "Free lectures and course materials."
+  },
+  {
+    "id": "res-9",
+    "title": "Pomofocus",
+    "category": "Productivity",
+    "link": "https://pomofocus.io/",
+    "description": "Pomodoro timer to stay focused."
+  },
+  {
+    "id": "res-10",
+    "title": "Notion",
+    "category": "Productivity",
+    "link": "https://www.notion.so/",
+    "description": "Organize notes and study plans in one place."
+  },
+  {
+    "id": "res-11",
+    "title": "Google Scholar",
+    "category": "Research",
+    "link": "https://scholar.google.com/",
+    "description": "Search scholarly articles and papers."
+  },
+  {
+    "id": "res-12",
+    "title": "Refactoring Guru",
+    "category": "Programming",
+    "link": "https://refactoring.guru/",
+    "description": "Design patterns and refactoring techniques."
+  }
+]

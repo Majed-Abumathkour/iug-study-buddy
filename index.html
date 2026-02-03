@@ -32,6 +32,7 @@
       We start in "light" so the CSS variables use the light palette by default.
     -->
 
+    <!-- #region: Header -->
     <header class="app-header">
       <!-- container keeps content away from screen edges at all sizes -->
       <div class="container app-header-inner">
@@ -63,8 +64,8 @@
           aria-controls="primaryNav"
         >
           <!-- Decorative icon; hidden from screen readers because "Menu" text provides the label.
-           If the icon is the only content (icon‑only button), i will not hide it;
-           instead i will add an accessible label aria-label="Menu" -->
+           If the icon is the only content (icon-only button), keep it visible
+           and add an accessible label: aria-label="Menu". -->
           <i class="bx bx-menu" aria-hidden="true"></i>
           Menu
         </button>
@@ -97,6 +98,7 @@
         </nav>
       </div>
     </header>
+    <!-- #endregion: Header -->
 
     <main class="app-main container">
       <section id="dashboard" class="panel is-active" data-section>
@@ -179,7 +181,7 @@
         </div>
 
         <div class="stack">
-          <!-- Task form -->
+          <!-- Task form for Create / Update -->
           <div class="card">
             <h3>Add or edit a task</h3>
             <form id="taskForm" class="form">
@@ -241,7 +243,7 @@
             </form>
           </div>
 
-          <!-- Task list controls + list -->
+          <!-- Task list area with filters + dynamic cards -->
           <div class="card">
             <div class="controls-grid">
               <div class="field">
@@ -312,7 +314,7 @@
             </form>
           </div>
 
-          <!-- Habits list + summary -->
+          <!-- Habits list + summary (filled by JS) -->
           <div class="card">
             <div class="habit-summary">
               <h3>Weekly summary</h3>
@@ -334,6 +336,7 @@
         </div>
 
         <div class="card">
+          <!-- Search + category filters -->
           <div class="controls-grid">
             <div class="field">
               <label for="resourceSearch">Search</label>
@@ -350,7 +353,9 @@
               </select>
             </div>
           </div>
+          <!-- Status messages: Loading / Error -->
           <div id="resourcesStatus" class="status" aria-live="polite"></div>
+          <!-- Resource cards are rendered here by JS -->
           <div id="resourcesList" class="resources-grid"></div>
         </div>
       </section>
@@ -365,6 +370,7 @@
         <div class="settings-grid">
           <div class="card">
             <h3>Theme</h3>
+            <!-- Toggle for light/dark mode -->
             <label class="switch">
               <input type="checkbox" id="themeToggle" />
               <span class="switch-track"></span>
@@ -376,6 +382,7 @@
             <p class="muted">
               Remove tasks, habits, and favorites from this browser.
             </p>
+            <!-- Clears localStorage state -->
             <button class="btn btn-danger" id="resetBtn" type="button">
               Reset local data
             </button>
@@ -386,17 +393,19 @@
               StudyBuddy is a single page app that helps you plan tasks, track
               habits, and save learning resources.
             </p>
-            <p>Student: <strong>Majed Mathkour</strong></p>
+            <p>Student: <strong>Majed Abumathkour <br> 120221624</strong></p>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>Built with ❤ by Majed Abumathkour</footer>
+    <footer>Built with love by Majed Abumathkour</footer>
 
-    <!-- #region: App Script -->
-    <!-- JavaScript is deferred so the HTML renders before behavior is attached. -->
-    <script src="app.js" defer></script>
-    <!-- #endregion: App Script -->
+    <!-- #region: App Scripts -->
+    <!-- JavaScript files are deferred so the HTML renders before behavior is attached. -->
+    <script src="state.js" defer></script>
+    <script src="storage.js" defer></script>
+    <script src="ui.js" defer></script>
+    <!-- #endregion: App Scripts -->
   </body>
 </html>

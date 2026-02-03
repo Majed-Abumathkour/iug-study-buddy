@@ -42,14 +42,14 @@ body[data-theme="dark"] {
 }
 
 body {
-  /* margin is a non‑inherited (non‑inheritable) property.
+  /* margin is a non-inherited (non-inheritable) property.
      So margin: 0 on body affects only the body element itself,
      not its children. unless was explicitly set*/
   margin: 0;
   /* Inheritable properties (like font-family and color) cascade to child elements unless overridden. */
   font-family: "Atkinson Hyperlegible Mono", monospace;
   color: var(--ink);
-  background: linear-gradient(120deg, #f6f2eb 0%, #efe8de 50%, #f9f4ec 100%);
+  background: linear-gradient(120deg, var(--bg) 0%, var(--bg-alt) 50%, var(--surface) 100%);
   min-height: 100vh;
 }
 
@@ -220,6 +220,22 @@ textarea {
   resize: vertical;
 }
 
+/* Focus styles for keyboard users. */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* Disabled controls should look inactive and non-clickable. */
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .form-error {
   color: var(--danger);
   min-height: 1rem;
@@ -233,6 +249,7 @@ textarea {
   padding: 0.55rem 1rem;
   cursor: pointer;
   font-weight: 600;
+  color: var(--ink);
 }
 
 .btn-primary {
@@ -250,6 +267,24 @@ textarea {
 .btn-danger {
   background: var(--danger);
   color: #fff;
+}
+
+/* Subtle hover feedback for buttons. */
+.btn:hover {
+  filter: brightness(0.97);
+}
+
+/* Disabled buttons appear muted and non-interactive. */
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Keyboard focus ring for buttons. */
+.btn:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
 }
 /* #endregion: Buttons */
 
@@ -477,6 +512,7 @@ body[data-theme="dark"] .app-header {
 /* #endregion: Dashboard */
 
 /* #region: Tasks */
+/* Task list cards, badges, and actions. */
 .task-card {
   border-radius: 16px;
   padding: var(--space-3);
@@ -533,6 +569,7 @@ body[data-theme="dark"] .app-header {
 /* #endregion: Tasks */
 
 /* #region: Habits */
+/* Habit cards with weekly day toggles. */
 .habit-summary {
   display: grid;
   gap: var(--space-2);
@@ -565,6 +602,7 @@ body[data-theme="dark"] .app-header {
   cursor: pointer;
   font-size: 0.75rem;
   font-family: inherit;
+  color: var(--ink);
 }
 
 .day-toggle.is-on {
@@ -574,6 +612,7 @@ body[data-theme="dark"] .app-header {
 /* #endregion: Habits */
 
 /* #region: Resources */
+/* Resource grid, cards, and favorite buttons. */
 .resources-grid {
   display: grid;
   gap: var(--space-3);
@@ -610,6 +649,7 @@ body[data-theme="dark"] .app-header {
   padding: 0.3rem 0.6rem;
   border-radius: 999px;
   cursor: pointer;
+  color: var(--ink);
 }
 
 .icon-btn.is-favorite {
@@ -628,6 +668,7 @@ body[data-theme="dark"] .app-header {
 /* #endregion: Resources */
 
 /* #region: Settings */
+/* Settings cards, theme toggle, and reset button. */
 .settings-grid {
   display: grid;
   gap: var(--space-3);
